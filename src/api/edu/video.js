@@ -8,61 +8,45 @@ import request from '@/utils/request'
 //   })
 // }
 export default {
-  //讲师列表（条件查询分页）
-  addCouseInfo(courseInfo) {
+  //添加小节
+  addVideo(video) {
     return request({
-      url: '/eduservice/edu_course/addCourseInfo',
+     url: `/eduservice/video/addVideo`,
       // url:" /eduservice/teacher/pageTeacherCondition/"+current+"/"+limit,
       method: 'post',
       //条件对象
       //data表示把对象转换json进行传递到接口里面
-      data: courseInfo
+        data:video
     })
   },
-  getList() {
+  //根据id查询章节
+  getVideo(videoId) {
     return request({
-      url: `/eduservice/teacher/findAll`,
-      method: 'get'
-    })
-  },
-  //根据课程id查询基本信息
-  selectCourseById(courseId) {
-    return request({
-      url: `/eduservice/edu_course/getCourseInfo/${courseId}`,
+     url: `/eduservice/video/getVideo/${videoId}`,
       // url:" /eduservice/teacher/pageTeacherCondition/"+current+"/"+limit,
       method: 'get',
       //条件对象
       //data表示把对象转换json进行传递到接口里面
-      // data:courseInfo
     })
   },
-  //修改基本信息
- updateCourseById(courseInfo) {
+  //修改章节
+  updateVideo(video) {
     return request({
-      url: "/eduservice/edu_course/updateCourseInfo",
+     url: `/eduservice/video/updateByid`,
       // url:" /eduservice/teacher/pageTeacherCondition/"+current+"/"+limit,
       method: 'post',
       //条件对象
       //data表示把对象转换json进行传递到接口里面
-      data:courseInfo
+data:video
     })
   },
-  //课程确认信息显示
-  getPubilCourseInfo(id){
+  //删除章节
+  deleteChapter(videoId) {
     return request({
-      url: `/eduservice/edu_course/getCouse/${id}`,
+     url: `/eduservice/video/${videoId}`,
       // url:" /eduservice/teacher/pageTeacherCondition/"+current+"/"+limit,
-      method: 'get',
-      //条件对象
-      //data表示把对象转换json进行传递到接口里面
-      
-    })
-  },
-  publishCourse(id){
-    return request({
-      url: `/eduservice/edu_course/publishCourse/${id}`,
-      method: 'get'  
-    })
-  }
+      method: 'delete',
   
-}
+    })
+  },
+} 
