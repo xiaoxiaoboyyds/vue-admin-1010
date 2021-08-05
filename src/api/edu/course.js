@@ -63,6 +63,24 @@ export default {
       url: `/eduservice/edu_course/publishCourse/${id}`,
       method: 'get'  
     })
-  }
-  
+  },
+  //分页条件查询所有课程
+    getAllCourse(current,limit,courseVo) {
+      return request({
+       url: `/eduservice/edu_course/getAllCourse/${current}/${limit}`,
+        // url:" /eduservice/teacher/pageTeacherCondition/"+current+"/"+limit,
+        method: 'post',
+        //条件对象
+        //data表示把对象转换json进行传递到接口里面
+        data: courseVo
+      })
+    },
+    //删除课程
+    DataCourseById(id){
+      return request({
+        url: `/eduservice/edu_course/deleteCourse/${id}`,
+         // url:" /eduservice/teacher/pageTeacherCondition/"+current+"/"+limit,
+         method: 'delete',
+       })
+    },
 }
