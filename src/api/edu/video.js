@@ -49,4 +49,13 @@ data:video
   
     })
   },
+   //删除视频
+   removeAlyVideo(videoId) {
+    return request({
+     url: `/eduvod/video/removeAlyVideo/${videoId}`,
+      // url:" /eduservice/teacher/pageTeacherCondition/"+current+"/"+limit,
+      method: 'delete',
+  
+    })
+  },
 } 
